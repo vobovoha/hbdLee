@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>9 Lá Thư Sinh Nhật 💌</title>
+
+<style>
+  body {
+    background: linear-gradient(135deg, #ffe0ec, #e0f7fa);
+    font-family: "Segoe UI", sans-serif;
+    text-align: center;
+    padding: 30px;
+  }
+
+  h1 {
+    color: #ff4d6d;
+    margin-bottom: 10px;
+  }
+
+  .letters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    max-width: 600px;
+    margin: 30px auto;
+  }
+
+  .letter {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    font-size: 13px;
+   
+  white-space: nowrap;   /* 👈 KHÔNG cho xuống dòng */
+  text-align: center;    /* 👈 cho chữ đẹp lại */
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+  }
+
+  .letter:hover {
+    transform: scale(1.05);
+    background: #ffeff4;
+  }
+
+  .content {
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    padding: 25px;
+    max-width: 600px;
+    margin: 20px auto;
+    min-height: 160px;
+  }
+
+  .message {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: justify;   /* canh đều 2 bên */
+  line-height: 1.6;
+}
+
+
+.from {
+  font-size: 14px;       /* nhỏ lại */
+  color: #ff4d6d;
+  text-align: right;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+
+  .made {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #555;
+  }
+/* 💸 TIỀN LẤP LÁNH */
+.money {
+  position: fixed;
+  top: -40px;
+  pointer-events: none;
+  z-index: 0;
+  font-size: 22px;
+  animation: fallMoney linear infinite;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(255,215,0,0.6));
+}
+
+@keyframes fallMoney {
+  0% {
+    transform: translateY(-50px) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.15;
+  }
+  80% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(110vh) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* Đảm bảo nội dung luôn nổi trên tiền */
+body > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<h1>💌 9 Lá Thư Sinh Nhật 💌</h1>
+<p>Chọn một lá thư để mở nha 🎂</p>
+
+<div class="letters">
+  <div class="letter" onclick="openLetter(0)">💌 EM BÉ 7 + 1</div>
+  <div class="letter" onclick="openLetter(1)">💌 NGƯỜI GIÀ 3+1</div>
+  <div class="letter" onclick="openLetter(2)">💌 EM BÉ 6+1</div>
+  <div class="letter" onclick="openLetter(3)">💌 EM BÉ 8+1</div>
+  <div class="letter" onclick="openLetter(4)">💌 EM BÉ 5+1</div>
+  <div class="letter" onclick="openLetter(5)">💌 EM BÉ 9+1</div>
+  <div class="letter" onclick="openLetter(6)">💌 NGƯỜI GIÀ 0+1</div>
+  <div class="letter" onclick="openLetter(7)">💌 NGƯỜI GIÀ 2+1</div>
+  <div class="letter" onclick="openLetter(8)">💌 NGƯỜI GIÀ 4+1</div>
+</div>
+
+<div class="content">
+  <div class="message" id="message" >
+    📩 Gửi bé "Lee" của anh, em hãy mở một lá thư bất kỳ nhé!
+  </div>
+  <div class="from" id="from"></div>
+</div>
+
+<div class="made">BUNDAUTEEN W/ LUV💖</div>
+
+<script>
+  const letters = [
+    {
+      msg: "Chúc bý le tuổi mới thật nhiều niềm vui và hạnh phúc😽😽save the best for the last, kphai là ng đầu tiên cầm tay nma là ng cuối cùng nói yêu nhé💅bước sang trang mới chúc c luôn có nhiều sức khoẻ, nhiều tiền, mong thế giới đối xử nhẹ nhàng với c ly, mong c ly sẽ mở lòng tâm sự, đừng giữ 1 mình sẽ mệt đó👨‍❤️‍💋‍👨nhớ giữ sk, đừng làm việc quá mức, ăn uống đầy đủ điều độ, lâu lâu nghỉ xả hơi cho mình tg rảnh, cho mình được vui✨bdt sẽ luôn ở cạnh c💪💪chúc c gặp seventeen thêm 7749 lần nữa nhé✨🩷.",
+      from: "— Thư kí em bé 8"
+    },
+    {
+      msg: "Tuổi mới đương nhiên là phải chúc sức khoẻ đầu tiên ròii, chúc chị k đau ốm nhưng làm ơn ăn nhiều lên tí dùm đi nha, tiền bạc kh phải lo kh phải nghĩ. Mong chị lúc nào cũng vui vẻ, thoải mái và có thật nhiều niềm vui mỗi ngày cùng 17 và bdt nhó 💝.",
+      from: "— người già 4"
+    },
+    {
+      msg: "Em chúc chúc chúc chị bý le bước sang tuổi mới, năm mới thật rực rỡ và hạnh phúc. chúc chị gác lại hết ưu phiền ở năm cũ để có 1 năm mới thiệt nhiều may mắn và tiền tiền tiền ạa 💕 chúc bý le mau ăn chóng lớn hehe chị ăn nhìu đồ ngon lên nhoaaa 🥰😍 giữ gìn sức khoẻ để làm mọi điều chị thích, đi mọi nơi chị mong và gặp mọi người chị muốn gặppp 💘❤️‍🔥.",
+      from: "— Em bé 7"
+    },
+    {
+      msg: "Chúc bý le tuổi mới thiệt bùng nổ 💥 chúc chị của em tuổi mới sẽ thật hạnh phúc, thật vui vẻ, kiếm được thật nhiều tiền để đi gặp các anh chồng 😋💕 chúc chị em luôn khoẻ mạnh, luôn hạnh phúc, iu bản thân thiệc nhìu, và luôn ở bên cạnh bdt nhíeeeee 💕💥💞 lớp diu sô mứt.",
+      from: "— Em bé 9"
+    },
+    {
+      msg: "Chúc mừng sinh nhật chị bé ly hihi chúc chị tuổi 22 bình an hạnh phúc 🦭👍🏻 mong mọi điều đến với chị sẽ thật suôn sẻ và thuận lợi nhé, cuối năm bận rộn nên hy zọng c sẽ có những ngày dui dẻ, gặp những ng c iu thưn và đón năm mới thật dui ihihi 🤩🤩 tuổi 22 xuất ngoại nhiều hơn để gặp ichan gặp 17 nhiều nhiều hêheheh (cùng bdt) saranghae nubit 💓💗💖💖💝💝💕 ôi ai cũng bị tư bản bào thui nên chị cũm cố gắng nhóe thưn thưn 🫂🫂🫂 cam on vi da den ❤️‍🔥❤️‍🔥❤️‍🔥.",
+      from: "— Mafia internet em bé 6"
+    },
+    {
+      msg: "Chúc mừng sinh nhật chị ly🕺🏻 chúc bà mau ăn chóng lớn (í là có da có thịt), moni come out ít moni come in nhiều, 2026 vẫn đạt kpi gặp ichan cho đến khi a ta nhập ngũ 🤓 e thân thương xa xôi vẫn nhớ đến chị nhiều lắm 😭🩷🫶🏻",
+      from: "— Em bé 10"
+    },
+    {
+      msg: "Happi bỉthday bý leee 💥💥 Chúc bý le tuổi mới lúc nào cũng có sức khoẻ, 2026 sẽ stress vì quá nhìu tiền k biết tiêu vào đâu chứ k phải vì những chuyện vặt vãnh nữa. Chúc bý le sẽ có cho mình công việc như ý muốn (lương cao, việc phù hợp, phúc lợi tốt, đồng nghiệp/sếp 200 điểm), có học hành gì cũng thuận lợi, năm sau lại làm 2 chuyến đi cc với nhao tiếp!!!! Lun zui zẻ và tâm sự với các chat bdts nhìu hơn nhoé xa rang hê.",
+      from: "— Ngừi zà 1"
+    },
+    {
+      msg: "Chụy iu cụa iemmmm, háp bi bớt đây ặ, thì ơ.. tuổi mới mong mọi thứ đều suôn sẻ với chị. Chúc chị, mọi điều may mắn, thuận lợi tóm lại mọi thứ mang hướng tích cực đều đến với chụy nhennnnn. Êu kụk kưng cụa bóe! ÀI LỚP DU PẶK PẶK.",
+      from: "— Sư fu mafia già 3"
+    },
+    {
+      msg: "Chúc bè tủi mới mọi quyết định đều lun suôn sẻ, mọi việc lun thuận buồm xuôi gió ⛵️ tui cũng T nên tui chúc bè lun may mắn nhe bè🤞🏻lun biết ơn vì bè lun cho nhưng lời khuyên bổ x, saranghae 🫂.",
+      from: "— Thư kí già 5"
+    }
+  ];
+
+  function openLetter(index) {
+    document.getElementById("message").innerText = letters[index].msg;
+    document.getElementById("from").innerText = letters[index].from;
+  }
+
+  window.onload = function () {
+    alert("💌 Có 9 lá thư dành cho bạn đó, chọn thư bạn thích để mở nha 🎂");
+  };
+
+  /* 💸 TẠO TIỀN LẤP LÁNH */
+function createMoney() {
+  const money = document.createElement("div");
+  money.className = "money";
+
+  const icons = ["💸", "💰", "🪙"];
+  money.innerText = icons[Math.floor(Math.random() * icons.length)];
+
+  money.style.left = Math.random() * 100 + "vw";
+  money.style.animationDuration = (5 + Math.random() * 4) + "s";
+  money.style.fontSize = (18 + Math.random() * 18) + "px";
+
+  document.body.appendChild(money);
+
+  setTimeout(() => {
+    money.remove();
+  }, 9000);
+}
+
+/* tiền rơi từ từ */
+setInterval(createMoney, 450);
+
+</script>
+
+</body>
+</html>
